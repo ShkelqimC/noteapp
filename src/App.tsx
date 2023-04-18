@@ -7,6 +7,7 @@ import { useLocalStorage } from "./useLocalStorage";
 import { v4 as uuidV4 } from "uuid";
 import { NoteList } from "./components/NoteList";
 import { NoteLayout } from "./components/NoteLayout";
+import { Note } from "./components/Note";
 export type Note = {
   id: string;
 } & NoteData;
@@ -77,7 +78,7 @@ function App() {
           }
         />
         <Route path="/:id" element={<NoteLayout notes={notesWithTags} />}>
-          <Route index element={<h1>Show</h1>} />
+          <Route index element={<Note />} />
           <Route path="edit" element={<h1>Edit</h1>} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
